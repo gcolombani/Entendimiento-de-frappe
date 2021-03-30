@@ -20,6 +20,9 @@ Erpnext es una aplicación de frappe (módulo) que incluye lo básico de un erp,
 ## ¿Qué es bench?
 Bench es la interfaz de lineas de comando (cli) que nos permite trabajar con frappe.
 
+## ¿Qué es un Doctype?
+Un Doctype es la manera en la cual Frappe maneja las entidades, puedes verlo como un modelo si estás acostumbrado al paradigma MVC.
+
 ## Cosas que debes tener en cuenta al trabajar con Frappe
 - Frappe maneja la base de datos de un modo algo peculiar, las claves primarias de las tablas son los nombres (name) de estas.
 - Las tablas en base de datos que corresponden a los Doctypes tienen la siguiente estructura <code>tabDoctypeName</code>, donde DoctypeName es el nombre del doctype.
@@ -35,8 +38,9 @@ Se debe trabajar en tu entorno local, luego subir los cambios al respositorio (m
 - Si se hacen cambios en la estructura de los doctypes, se debe correr la migración <code>bench migrate</code>
 - Si se hacen cambios en los archivos de javascript, se debe correr la construcción de los assets <code>bench build</code>
 
-2. La otra manera que solemos emplear en casos muy extremos, donde no es posible agregar la logica de negocio en una aplicación a parte, es modificar el core de ERPNEXT o Frappe y crear un repositorio privado para guardar y mantener estos cambios y manejar las actualizaciones.
+2. La otra manera que podemos emplear en casos muy muy extremos, donde no es posible agregar la logica de negocio en una aplicación a parte, es modificar el core de ERPNEXT o Frappe y crear un repositorio privado para guardar y mantener estos cambios y manejar las actualizaciones.
 - Esta debe ser siempre la última opción.
 - Se debe asignar el repositorio privado como origin y el de Frappe/ERPNEXT como upstream, para guardar en el origin nustra version y mantenerla actualizada jalando desde upstream (para esto se debe tener sumo cuidado)
 - Se debe agregar al readme los archivos que se están modificando en esta version customizada de la aplicación.
-
+Es necesario hacer incapie en que la segunda opción es en casos muy extremos, como un ejemplos de un caso que puede parecer extremo pero no lo es y su solución:
+- Modificar la logica de js de algun doctype de una aplicación ajena. Para esto debes crear tu propia app y en los js de esta agregar la lógica que desees al modelo ajeno, por ejemplo un nuevo botón con una opción especifica para los productos. En el siguiente ejemplo se modifica la logica de la vista de las facturas pertenecientes a la aplicación de ERPNEXT sin tocar erpnext: https://gitlab.com/rootstack/erpnext-intfiscal/-/blob/master/intfiscal/public/js/account.js
