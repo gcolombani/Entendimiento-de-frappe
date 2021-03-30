@@ -1,32 +1,32 @@
 # Entendimiento de Frappe / ERPNEXT
-Documento de entendimiento de frappe.
+Documento de entendimiento de Frappe.
 
 ## ¿Qué es Frappe?
-Frappe es un framework full stack escrito en python y javascript para desarrollar soluciones empresariales bajo el enfoque de ERP. Que además permite desarrollar y agregar al sistema aplicaciones (módulos) personalizados dependiendo de los requerimientos especificos del negocio. A su vez, Frappe es una aplicación dentro de la caja de Frappe.
+Frappe es un poderoso framework full stack escrito en python y javascript pensado desarrollar soluciones empresariales bajo el enfoque de ERP. Permite desarrollar y agregar al sistema aplicaciones (módulos) personalizadas dependiendo de los requerimientos especificos del negocio. A su vez, Frappe es una aplicación dentro de la caja de Frappe.
 
 ### ¿Qué es un ERP?
 El término ERP se refiere a Enterprise Resource Planning, que significa “sistema de planificación de recursos empresariales”. Estos programas se hacen cargo de distintas operaciones internas de una empresa, desde producción a distribución o incluso recursos humanos.
 
-### ¿Qué es una aplicación de frappe?
-Una aplicación frappe vive dentro de la caja de frappe y este soporta múltiples aplicaciones, se pueden ver como módulos de un software que se construye en base a estos, el primer ejemplo es Frappe, el segundo es ERPNEXT.
+### ¿Qué es una aplicación de Frappe?
+Una aplicación Frappe vive dentro de la caja de Frappe y este soporta múltiples aplicaciones, se pueden ver como módulos de un software que se construye en base a estos, el primer ejemplo es Frappe, el segundo es ERPNEXT.
 
-## ¿Qué es ErpNEXT?
-Erpnext es una aplicación de frappe (módulo) que incluye lo básico de un erp, como por ejemplo:
+## ¿Qué es ERPNEXT?
+ERPNEXT es una aplicación de Frappe (módulo) que incluye lo básico de un erp, como por ejemplo:
 - Clientes
 - Productos
 - Inventario
-- etc
+- Entre otros
 
 ## ¿Qué es bench?
-Bench es la interfaz de lineas de comando (cli) que nos permite trabajar con frappe.
+Bench es la interfaz de lineas de comando (cli) que nos permite trabajar con Frappe.
 
 ## ¿Qué es un Doctype?
 Un Doctype es la manera en la cual Frappe maneja las entidades, puedes verlo como un modelo si estás acostumbrado al paradigma MVC.
 
 ## Cosas que debes tener en cuenta al trabajar con Frappe
 - Frappe maneja la base de datos de un modo algo peculiar, las claves primarias de las tablas son los nombres (name) de estas.
-- Las tablas en base de datos que corresponden a los Doctypes tienen la siguiente estructura <code>tabDoctypeName</code>, donde DoctypeName es el nombre del doctype.
-- Funciona con un paradigma excentrico el cual se puede ver como un tipo de MVC, pero cambiando un poco la terminología y el uso de las vistas. Los modelos serían Doctypes, los registros docs. Las vistas no se escriben, solo se configuran con los archivos JS de cada Doctype, las vistas se contruyen de manera estandar con esta configuración.
+- Las tablas en base de datos que corresponden a los Doctypes tienen la siguiente estructura <code>tabDoctypeName</code>, donde doctypeName es el nombre del doctype.
+- Funciona con un paradigma excentrico el cual se puede ver como un tipo de MVC, pero cambiando un poco la terminología y el uso de las vistas. Los modelos serían Doctypes, los registros documents. Las vistas no se escriben, solo se configuran con los archivos JS de cada Doctype, las vistas se contruyen de manera estandar con esta configuración.
 - Los Doctypes se crean desde la interfaz de Frappe o desde el código (Mucho más sencillo hacerlo desde la inmterfaz).
 - Frappe permite proveer un website a los clientes que visiten el sitio y esta cara funciona diferente al resto del framework, es un poco complicado de personalizar sin cambiar las aplicaciones core (Frappe y ERPNEXT).
 
@@ -43,4 +43,4 @@ Se debe trabajar en tu entorno local, luego subir los cambios al respositorio (m
 - Se debe asignar el repositorio privado como origin y el de Frappe/ERPNEXT como upstream, para guardar en el origin nustra version y mantenerla actualizada jalando desde upstream (para esto se debe tener sumo cuidado)
 - Se debe agregar al readme los archivos que se están modificando en esta version customizada de la aplicación.
 Es necesario hacer incapie en que la segunda opción es en casos muy extremos, como un ejemplos de un caso que puede parecer extremo pero no lo es y su solución:
-- Modificar la logica de js de algun doctype de una aplicación ajena. Para esto debes crear tu propia app y en los js de esta agregar la lógica que desees al modelo ajeno, por ejemplo un nuevo botón con una opción especifica para los productos. En el siguiente ejemplo se modifica la logica de la vista de las facturas pertenecientes a la aplicación de ERPNEXT sin tocar erpnext: https://gitlab.com/rootstack/erpnext-intfiscal/-/blob/master/intfiscal/public/js/account.js
+- Modificar la logica de js de algun doctype de una aplicación ajena. Para esto debes crear tu propia app y en los js de esta agregar la lógica que desees al modelo ajeno, por ejemplo un nuevo botón con una opción especifica para los productos. En el siguiente ejemplo se modifica la logica de la vista de las facturas pertenecientes a la aplicación de ERPNEXT sin tocar ERPNEXT: https://gitlab.com/rootstack/ERPNEXT-intfiscal/-/blob/master/intfiscal/public/js/account.js
